@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
-import { ChevronRight, ArrowRight,Send ,Mail,MapPin,Globe } from 'lucide-react';
+import { ChevronRight,Send,ArrowRight ,Mail,MapPin,Globe } from 'lucide-react';
 import bannner from "../assets/servicesBanner1.png";
 import tech from "../assets/leadershiptech.png";
+import agent from "../assets/agent.png"
 import Header from '../components/Header';
+import price from "../assets/price.png";
+
+
 
 
 export default function LeadershipProfilePage() {
@@ -119,43 +123,36 @@ export default function LeadershipProfilePage() {
                     </div>
 
                     {/* Content Grid - AI Solutions */}
-                    <div className="grid md:grid-cols-2 gap-12 mb-12 items-center bg-[#E7F5F6] ">
+                    <div className="grid md:grid-cols-2 gap-12 mb-12 p-8     rounded-xl items-center bg-[#E7F5F6] ">
                         {/* Content (Left side) */}
                         <div className="order-1 ">
-                            <h4 className=" text-2xl font-semibold text-gray-900 mb-6">Manufacturing Technologies:</h4>
+                            <h4 className=" text-2xl font-semibold text-gray-900 mb-6">Al Solutions & Advanced Digital Technology:</h4>
                             <ul className=" space-y-3 text-gray-700">
                                 <li className="flex items-end">
                                     <span className="text-gray-900 mr-3 ">•</span>
-                                    <span>Metal Injection Molding (MIM).</span>
+                                    <span>Al-Driven Manufacturing Solutions.</span>
                                 </li>
                                 <li className="flex items-endt">
                                     <span className="text-gray-900 mr-3 ">•</span>
-                                    <span>Investment Casting.</span>
+                                    <span>Predictive Analytics for Production & Sourcing.</span>
                                 </li>
                                 <li className="flex items-end">
                                     <span className="text-gray-900 mr-3 ">•</span>
-                                    <span>Precision Machining.</span>
+                                    <span>Data-Driven Process Improvement.</span>
                                 </li>
                                 <li className="flex items-end">
                                     <span className="text-gray-900 mr-3 ">•</span>
-                                    <span>Laser Cladding.</span>
+                                    <span>Digital Smart Factory Solutions
+.</span>
                                 </li>
                                 <li className="flex items-end">
                                     <span className="text-gray-900 mr-3 ">•</span>
-                                    <span>Surface Treatments.</span>
+                                    <span>Advanced Process Automation & Robotics.</span>
                                 </li>
-                                <li className="flex items-end">
-                                    <span className="text-gray-900 mr-3">•</span>
-                                    <span>Rubber Processing Machines.</span>
-                                </li>
-                                <li className="flex items-end">
-                                    <span className="text-gray-900 mr-3 ">•</span>
-                                    <span>Food Processing equipment.</span>
-                                </li>
-                                <li className="flex items-end">
-                                    <span className="text-gray-900 mr-3 ">•</span>
-                                    <span>Warehouse Automation.</span>
-                                </li>
+                             
+                               
+                         
+                                
                             </ul>
                             <button className="mt-8 text-teal-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all">
                                 Know More <ArrowRight size={18} />
@@ -165,7 +162,7 @@ export default function LeadershipProfilePage() {
                         {/* Image (Right side) */}
                         <div className="order-2">
                             <img
-                                src={tech}
+                                src={agent}
                                 alt="Manufacturing Technologies"
                                 className="w-full h-full object-cover rounded-lg shadow-md"
                             />
@@ -185,7 +182,7 @@ export default function LeadershipProfilePage() {
                         {/* Left - Image */}
                         <div className="order-2 md:order-1">
                             <img
-                                src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600"
+                                src={price}
                                 alt="Industry Exposure"
                                 className="w-full h-96 object-cover rounded-lg shadow-md"
                             />

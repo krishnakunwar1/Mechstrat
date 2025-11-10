@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 
 
-import { Eye, CheckCircle, Lightbulb, Cpu, Briefcase, Factory, Network, Target, Users, Globe, TrendingUp, Award, Send, Mail, MapPin } from 'lucide-react';
+import { Eye, CheckCircle,ArrowRight, Lightbulb, Cpu, Briefcase, Factory, Network, Target, Users, Globe, TrendingUp, Award, Send, Mail, MapPin } from 'lucide-react';
 import HeroSection from '../components/heroSection'; // HeroSection का सही पाथ सुनिश्चित करें
 import Header from '../components/Header'; // Header का सही पाथ सुनिश्चित करें
 import about from "../assets/aboutAI.png";
@@ -51,24 +51,24 @@ export default function HomePage() {
 
                     {/* Text Box - overlapping the image */}
                     <div className="md:absolute md:top-16 md:left-[38%] md:right-0 mt-8 md:mt-0 md:pr-8 lg:pr-16">
-    <div className="bg-[#E7F5F6] p-8 md:p-10 rounded-lg shadow-xl max-w-2xl mx-auto">
-      <h2 className="font-[Poppins] font-normal text-[40px] leading-[52px] tracking-[0] text-[#111827] flex items-center mb-6 relative">
-        About Us
-        <span className="absolute bottom-[-5px] left-0 w-24 h-1 bg-[#1695A3]"></span>
-      </h2>
-      <div className="text-[#374151] font-medium text-[15px] space-y-4 leading-relaxed">
-        <p>
-          MechStrat Global is a specialized consulting firm focused exclusively on the manufacturing ecosystem, partnering with both manufacturing companies and AI-driven solution providers that serve the industrial sector.
-        </p>
-        <p>
-          We bring together deep mechanical domain knowledge, strategic business insight, and global market experience to help clients unlock performance, efficiency, and sustainable growth.
-        </p>
-      
-        <p>
-          At MechStrat Global, we don't just offer advice — we co-create transformation roadmaps, helping manufacturers optimize cost structures, strengthen sourcing ecosystems, and expand into new markets, while guiding AI innovators to accelerate adoption within manufacturing clusters.
-        </p>
-      </div>
-    </div>
+                        <div className="bg-[#E7F5F6] p-8 md:p-10 rounded-lg shadow-xl max-w-2xl mx-auto">
+                            <h2 className="font-[Poppins] font-normal text-[40px] leading-[52px] tracking-[0] text-[#111827] flex items-center mb-6 relative">
+                                About Us
+                                <span className="absolute bottom-[-5px] left-0 w-24 h-1 bg-[#1695A3]"></span>
+                            </h2>
+                            <div className="text-[#374151] font-medium text-[15px] space-y-4 leading-relaxed">
+                                <p>
+                                    MechStrat Global is a specialized consulting firm focused exclusively on the manufacturing ecosystem, partnering with both manufacturing companies and AI-driven solution providers that serve the industrial sector.
+                                </p>
+                                <p>
+                                    We bring together deep mechanical domain knowledge, strategic business insight, and global market experience to help clients unlock performance, efficiency, and sustainable growth.
+                                </p>
+
+                                <p>
+                                    At MechStrat Global, we don't just offer advice — we co-create transformation roadmaps, helping manufacturers optimize cost structures, strengthen sourcing ecosystems, and expand into new markets, while guiding AI innovators to accelerate adoption within manufacturing clusters.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -334,6 +334,10 @@ export default function HomePage() {
                                     <p className="font-[Poppins] font-normal text-[17px] leading-[26px] tracking-[0] text-[#374151] flex items-center">Strategic Sourcing & Supply Chain Consulting</p>
                                 </div>
                             </div>
+
+                            <button className="mt-8 text-teal-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all">
+                                Learn More <ArrowRight size={18} />
+                            </button>
                         </div>
 
                         {/* AI Solution Providers Card */}
@@ -361,6 +365,9 @@ export default function HomePage() {
                                     <p className="font-[Poppins] font-normal text-[17px] leading-[26px] tracking-[0] text-[#374151] flex items-center">Business Strategy & Commercial Scaling</p>
                                 </div>
                             </div>
+                           <button className="mt-8 text-teal-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all">
+                                Learn More <ArrowRight size={18} />
+                            </button>
                         </div>
 
                         {/* Technology Solution Providers Card */}
@@ -389,8 +396,12 @@ export default function HomePage() {
                                     <p className="font-[Poppins] font-normal text-[17px] leading-[26px] tracking-[0] text-[#374151] flex items-center">Business Consulting for Growth and Expansion</p>
                                 </div>
                             </div>
+                            <button className="mt-8 text-teal-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all">
+                                Learn More <ArrowRight size={18} />
+                            </button>
                         </div>
                     </div>
+
                 </div>
             </section>
             <section className="bg-gray-50 py-16 px-6">

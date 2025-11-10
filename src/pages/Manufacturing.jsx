@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import Header from "../components/Header";
-
-import { Target, Users, TrendingUp, BarChart3, DollarSign, MapPin, Send, Mail, Globe } from 'lucide-react';
+import vector from "../assets/vector.png";
+import vector1 from "../assets/vector1.png";
+import target from "../assets/target.png";
+import focus from "../assets/focus.png"
+import { Target, ChevronUp, ChevronDown, Users, TrendingUp, BarChart3, DollarSign, MapPin, Send, Mail, Globe } from 'lucide-react';
 import Aibaner from "../assets/Aicompany.png"
 import manufacturing from "../assets/manufacturingImage.jpg"
+import stock from "../assets/stock.jpg"
 export default function Manufacturing() {
   const [formData, setFormData] = useState({
     name: '',
@@ -31,17 +35,17 @@ export default function Manufacturing() {
 
       {/* Hero Banner */}
       <section
-        className="relative bg-cover h-[850px] bg-center py-20 px-6"
+        className="relative bg-cover h-[630px] bg-center py-20 px-6"
         style={{
           backgroundImage: `url(${Aibaner})`,
         }}
       >
         {/* Overlay */}
-        <div className="absolute inset-0 "></div>
+        {/* <div className="absolute inset-0 "></div> */}
 
         {/* Content */}
         <div className="container mx-auto max-w-6xl text-center relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
+          <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg ">
             For Manufacturing Companies
           </h1>
         </div>
@@ -240,7 +244,7 @@ export default function Manufacturing() {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
             Business Problem Solving & Transformation
           </h2>
-          <div className="w-80 h-1 bg-black mb-8"></div>
+          <div className="w-80 h-1 bg-teal-500 mb-8"></div>
 
           <p className="text-gray-700 text-center mb-12 leading-relaxed max-w-4xl mx-auto">
             Every business faces hurdles, but it's the speed and effectiveness with which they are solved that dictates long-term success. Our <span className="font-bold">Business Problem Solving & Transformation</span> service offers a structured, systematic approach to tackling your most complex operational, market, and financial challenges.
@@ -259,7 +263,7 @@ export default function Manufacturing() {
                 </p>
                 <div className="flex-shrink-0">
                   <img
-                    src="https://img.icons8.com/color/96/000000/business-report.png"
+                    src={vector}
                     alt="Problem Resolution"
                     className="w-24 h-24"
                   />
@@ -278,7 +282,7 @@ export default function Manufacturing() {
                 </p>
                 <div className="flex-shrink-0">
                   <img
-                    src="https://img.icons8.com/color/96/000000/factory.png"
+                    src={vector1}
                     alt="Smart Factory"
                     className="w-24 h-24"
                   />
@@ -297,7 +301,7 @@ export default function Manufacturing() {
                 </p>
                 <div className="flex-shrink-0">
                   <img
-                    src="https://img.icons8.com/color/96/000000/transformation.png"
+                    src={target}
                     alt="Transformation"
                     className="w-24 h-24"
                   />
@@ -316,7 +320,7 @@ export default function Manufacturing() {
                 </p>
                 <div className="flex-shrink-0">
                   <img
-                    src="https://img.icons8.com/color/96/000000/goal.png"
+                    src={focus}
                     alt="Tangible Outcomes"
                     className="w-24 h-24"
                   />
@@ -326,7 +330,74 @@ export default function Manufacturing() {
           </div>
         </div>
       </section>
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          {/* Section Title */}
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
+            Strategic Sourcing & Supply Chain Consulting
+          </h2>
+          <div className="w-80 h-1 bg-teal-600  mb-8"></div>
+          {/* Subtitle */}
+          <p className="text-gray-600 text-center max-w-3xl mx-auto mb-12">
+            Cost optimization is non-negotiable for manufacturers aiming for a competitive edge.
+            Our Strategic Sourcing & Supply Chain Consulting service provides expert guidance to
+            dramatically reduce material and component costs while building a resilient,
+            future-proof supply chain.
+          </p>
 
+          {/* Main Section */}
+          <div className="grid md:grid-cols-2 gap-8 bg-teal-50 rounded-2xl p-8 items-center">
+            {/* Left Content */}
+            <div>
+              {/* Section 1 */}
+              <div className="mb-6">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-semibold text-gray-900">
+                    Global Resource and Cost Optimization:
+                  </h3>
+                  <ChevronUp className="w-5 h-5 text-gray-600" />
+                </div>
+                <p className="text-gray-600 mt-2 text-sm leading-relaxed">
+                  We specialize in resourcing projects by identifying and developing high-quality,
+                  reliable alternative supply sources in low-cost countries. For components or
+                  assemblies currently sourced from high-cost regions (like Europe or the USA),
+                  we manage the entire migration process—from initial supplier vetting to qualification
+                  and stable production handover.
+                </p>
+              </div>
+
+              {/* Section 2 */}
+              <div className="mb-4">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-semibold text-gray-900">
+                    Alternative Supply Source Development:
+                  </h3>
+                  <ChevronDown className="w-5 h-5 text-gray-600" />
+                </div>
+              </div>
+
+              {/* Section 3 */}
+              <div>
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-semibold text-gray-900">
+                    Maximizing Profitability:
+                  </h3>
+                  <ChevronDown className="w-5 h-5 text-gray-600" />
+                </div>
+              </div>
+            </div>
+
+            {/* Right Image */}
+            <div className="flex justify-center">
+              <img
+              src={stock}
+                alt="Data Analytics Dashboard"
+                className="rounded-2xl shadow-lg w-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="bg-white py-16 px-6">
         <div className="container mx-auto max-w-6xl">
           {/* Heading */}

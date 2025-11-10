@@ -50,7 +50,7 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 text-center max-w-5xl mx-auto px-6">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal leading-tight tracking-wide text-white mb-8">
-          Bridging manufacturing & AI Tech Solutions Through Strategic Consulting.
+          Bridging Manufacturing & AI Tech Solutions Through Strategic Consulting.
         </h1>
 
         <p className="text-lg md:text-xl lg:text-2xl text-[#FFFFFF] leading-relaxed mb-10 max-w-4xl mx-auto font-light">
