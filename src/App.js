@@ -6,6 +6,7 @@ import  Manufacturing from "./pages/Manufacturing";
 import ManufacturingCompaniesPage from "./pages/ManufacturingServices"
 import LeadershipProfilePage from "./pages/LeadershipProfile";
 import ContactUs from "./pages/Contact";
+import ContactForm from './pages/ContactForm';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/services/Technology" element={< ManufacturingCompaniesPage/>} />
           <Route path="/services/AIsolution" element={< AISolutionProvidersPage/>} />
           <Route path="/contactUs" element={< ContactUs/>} />
+          <Route path='/schedule/formpage' element={<ContactForm/>}/>
 
 
 

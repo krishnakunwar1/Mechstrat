@@ -1,9 +1,11 @@
 // pages/HomePage.jsx (या जहां भी आप इसे रखना पसंद करें)
 
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 
-import { Eye, CheckCircle,ArrowRight, Lightbulb, Cpu, Briefcase, Factory, Network, Target, Users, Globe, TrendingUp, Award, Send, Mail, MapPin } from 'lucide-react';
+
+import { Eye, CheckCircle, ArrowRight, Lightbulb, Cpu, Briefcase, Factory, Network, Target, Users, Globe, TrendingUp, Award, Send, Mail, MapPin } from 'lucide-react';
 import HeroSection from '../components/heroSection'; // HeroSection का सही पाथ सुनिश्चित करें
 import Header from '../components/Header'; // Header का सही पाथ सुनिश्चित करें
 import about from "../assets/aboutAI.png";
@@ -18,6 +20,7 @@ export default function HomePage() {
         email: '',
         message: ''
     });
+    const navigate = useNavigate()
 
     const handleChange = (e) => {
         setFormData({
@@ -132,7 +135,7 @@ export default function HomePage() {
                             <img
                                 src={mg}
                                 alt="Manufacturing & AI"
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-cover animate-bounce-slow"
                             />
 
                             {/* Overlay Graphics */}
@@ -151,342 +154,274 @@ export default function HomePage() {
                     </div>
                 </footer>
             </section>
-            <section className="bg-[#FAFBFB] py-16 px-6">
-                <div className="container mx-auto max-w-6xl">
-                    {/* Heading */}
-                    <div className="text-center mb-12">
-                        <h2 className=" font-normal text-[#111827] text-[50px] leading-[40px] flex items-center justify-center text-center mb-2">Leadership Profile</h2>
-                        <div className="w-24 h-1 bg-teal-500 mx-auto mt-4"></div>
-                    </div>
+          <section className="bg-[#FAFBFB] py-16 px-6 animate-slide-up">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-12">
+            <h2 className="font-normal text-[#111827] text-[50px] leading-[40px] flex items-center justify-center text-center mb-2">
+              Leadership Profile
+            </h2>
+            <div className="w-24 h-1 bg-teal-500 mx-auto mt-4"></div>
+          </div>
 
-                    {/* Experience Box */}
-                    <div className="bg-[#E7F5F6] rounded-lg p-8 mb-8 shadow-md">
-                        <div className="flex items-center gap-3 mb-4">
-                            <Briefcase className="w-6 h-6 text-teal-600" />
-                            <h3 className=" font-[Poppins] text-2xl font-semibold text-[#111827]">Experience</h3>
-                        </div>
-                        <p className="font-[Poppins]  text-[#374151] text-[17px] ">
-                            Our leadership team brings decades of combined experience in the manufacturing sector, having worked with Fortune 500  <br />
-                            companies, innovative  <br /> startups, and global technology leaders. We have successfully guided organizations through complex transformations and
-                            strategic challenges across multiple continents.
-                        </p>
-                    </div>
+          {/* Experience */}
+          <div className="bg-[#E7F5F6] rounded-lg p-8 mb-8 shadow-md hover:animate-bounce-soft transition-all">
+            <div className="flex items-center gap-3 mb-4">
+              <Briefcase className="w-6 h-6 text-teal-600" />
+              <h3 className="font-[Poppins] text-2xl font-semibold text-[#111827]">
+                Experience
+              </h3>
+            </div>
+            <p className="font-[Poppins] text-[#374151] text-[17px]">
+              Our leadership team brings decades of combined experience in the
+              manufacturing sector, having worked with Fortune 500 companies,
+              innovative startups, and global technology leaders. We have
+              successfully guided organizations through complex transformations
+              and strategic challenges across multiple continents.
+            </p>
+          </div>
 
-                    {/* Two Column Section */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                        {/* Manufacturing Technologies Box */}
-                        <div className="bg-[#E5F3F4] rounded-lg p-8 shadow-md">
-                            <div className="flex items-center gap-3 mb-6">
-                                <Cpu className="w-6 h-6 text-teal-600" />
-                                <h3 className=" font-[Poppins] text-[24px] font-semibold text-[#111827]">Manufacturing Technologies:</h3>
-                            </div>
-                            <ul className="space-y-3">
-                                <li className="flex items-start gap-2 text-gray-700">
-                                    <span className="text-teal-600 mt-1">•</span>
-                                    <span>Metal Injection Molding (MIM),</span>
-                                </li>
-                                <li className="flex items-start gap-2 text-gray-700">
-                                    <span className="text-teal-600 mt-1">•</span>
-                                    <span>Investment Casting,</span>
-                                </li>
-                                <li className="flex items-start gap-2 text-gray-700">
-                                    <span className="text-teal-600 mt-1">•</span>
-                                    <span>Precision Machining</span>
-                                </li>
-                                <li className="flex items-start gap-2 text-gray-700">
-                                    <span className="text-teal-600 mt-1">•</span>
-                                    <span>Laser Cladding</span>
-                                </li>
-                                <li className="flex items-start gap-2 text-gray-700">
-                                    <span className="text-teal-600 mt-1">•</span>
-                                    <span>Surface Treatments</span>
-                                </li>
-                                <li className="flex items-start gap-2 text-gray-700">
-                                    <span className="text-teal-600 mt-1">•</span>
-                                    <span>Rubber Processing Machines</span>
-                                </li>
-                                <li className="flex items-start gap-2 text-gray-700">
-                                    <span className="text-teal-600 mt-1">•</span>
-                                    <span>Food Processing equipment</span>
-                                </li>
-                                <li className="flex items-start gap-2 text-gray-700">
-                                    <span className="text-teal-600 mt-1">•</span>
-                                    <span>Warehouse Automation.</span>
-                                </li>
-                            </ul>
-                        </div>
+          {/* Two Column */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div className="bg-[#E5F3F4] rounded-lg p-8 shadow-md hover:animate-bounce-soft transition-all">
+              <div className="flex items-center gap-3 mb-6">
+                <Cpu className="w-6 h-6 text-teal-600" />
+                <h3 className="font-[Poppins] text-[24px] font-semibold text-[#111827]">
+                  Manufacturing Technologies:
+                </h3>
+              </div>
+              <ul className="space-y-3 text-gray-700">
+                <li>• Metal Injection Molding (MIM)</li>
+                <li>• Investment Casting</li>
+                <li>• Precision Machining</li>
+                <li>• Laser Cladding</li>
+                <li>• Surface Treatments</li>
+                <li>• Rubber Processing Machines</li>
+                <li>• Food Processing equipment</li>
+                <li>• Warehouse Automation</li>
+              </ul>
+            </div>
 
-                        {/* AI Solutions Box */}
-                        <div className="bg-[#E5F3F4] rounded-lg p-8 shadow-md">
-                            <div className="flex items-center gap-3 mb-6">
-                                <Lightbulb className="w-6 h-6 text-teal-600" />
-                                <h3 className="text-xl font-semibold text-gray-800">AI Solutions & Advanced Digital Technology:</h3>
-                            </div>
-                            <ul className="space-y-3">
-                                <li className="flex items-start gap-2 text-gray-700">
-                                    <span className="text-teal-600 mt-1">•</span>
-                                    <span>AI-Driven Manufacturing Solutions</span>
-                                </li>
-                                <li className="flex items-start gap-2 text-gray-700">
-                                    <span className="text-teal-600 mt-1">•</span>
-                                    <span>Predictive Analytics for Production & Sourcing</span>
-                                </li>
-                                <li className="flex items-start gap-2 text-gray-700">
-                                    <span className="text-teal-600 mt-1">•</span>
-                                    <span>Data-Driven Process Improvement</span>
-                                </li>
-                                <li className="flex items-start gap-2 text-gray-700">
-                                    <span className="text-teal-600 mt-1">•</span>
-                                    <span>Digital Smart Factory Solutions</span>
-                                </li>
-                                <li className="flex items-start gap-2 text-gray-700">
-                                    <span className="text-teal-600 mt-1">•</span>
-                                    <span>Advanced Process Automation & Robotics</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+            <div className="bg-[#E5F3F4] rounded-lg p-8 shadow-md hover:animate-bounce-soft transition-all">
+              <div className="flex items-center gap-3 mb-6">
+                <Lightbulb className="w-6 h-6 text-teal-600" />
+                <h3 className="text-xl font-semibold text-gray-800">
+                  AI Solutions & Advanced Digital Technology:
+                </h3>
+              </div>
+              <ul className="space-y-3 text-gray-700">
+                <li>• AI-Driven Manufacturing Solutions</li>
+                <li>• Predictive Analytics for Production & Sourcing</li>
+                <li>• Data-Driven Process Improvement</li>
+                <li>• Digital Smart Factory Solutions</li>
+                <li>• Advanced Process Automation & Robotics</li>
+              </ul>
+            </div>
+          </div>
 
-                    {/* Consulting Vision Box */}
-                    <div className="bg-[#E5F3F4] rounded-lg p-8 shadow-md">
-                        <div className="flex flex-col md:flex-row gap-8 items-start">
-                            {/* Left Content */}
-                            <div className="flex-1">
-                                <h3 className="text-2xl font-semibold text-gray-800 mb-4">Consulting Vision:</h3>
-                                <p className="text-gray-700 leading-relaxed mb-6">
-                                    Through Mechstrat Global , we fuse our passion for Manufacturing excellence with Advanced AI technologies to deliver measurable,
-                                    sustainable business transformation.
-                                </p>
-                                <p className="text-gray-800 font-semibold mb-4">Our Aim is to :</p>
-                                <ul className="space-y-3">
-                                    <li className="flex items-start gap-2 text-gray-700">
-                                        <span className="text-teal-600 mt-1">•</span>
-                                        <span>Built the Business</span>
-                                    </li>
-                                    <li className="flex items-start gap-2 text-gray-700">
-                                        <span className="text-teal-600 mt-1">•</span>
-                                        <span>Accelerated & Expand the Growth</span>
-                                    </li>
-                                    <li className="flex items-start gap-2 text-gray-700">
-                                        <span className="text-teal-600 mt-1">•</span>
-                                        <span>Support Operation Excellence</span>
-                                    </li>
-                                </ul>
-                            </div>
+          {/* Consulting Vision */}
+          <div className="bg-[#E5F3F4] rounded-lg p-8 shadow-md hover:animate-bounce-soft transition-all">
+            <div className="flex flex-col md:flex-row gap-8 items-start">
+              <div className="flex-1">
+                <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                  Consulting Vision:
+                </h3>
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  Through Mechstrat Global, we fuse our passion for
+                  Manufacturing excellence with Advanced AI technologies to
+                  deliver measurable, sustainable business transformation.
+                </p>
+                <p className="text-gray-800 font-semibold mb-4">Our Aim is to :</p>
+                <ul className="space-y-3 text-gray-700">
+                  <li>• Build the Business</li>
+                  <li>• Accelerate & Expand Growth</li>
+                  <li>• Support Operational Excellence</li>
+                </ul>
+              </div>
+              <div className="md:w-64 flex-shrink-0">
+                <img
+                  src={LeaderAI}
+                  alt="AI Technology"
+                  className="rounded-lg shadow-lg w-full h-auto object-cover animate-bounce-slow"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-                            {/* Right Image */}
-                            <div className="md:w-64 flex-shrink-0">
-                                <img
-                                    src={LeaderAI}
-                                    alt="AI Technology"
-                                    className="rounded-lg shadow-lg w-full h-auto object-cover"
-                                />
-                            </div>
-                        </div>
-                    </div>
+      {/* Service Offerings */}
+      <section className="bg-white py-16 px-6 animate-slide-up">
+        <div className="container mx-auto max-w-7xl">
+          <div className="text-center mb-4">
+            <h2 className="font-normal text-[50px] text-gray-800 text-center flex items-center justify-center mb-2">
+              Service Offerings
+            </h2>
+            <div className="w-24 h-1 bg-teal-500 mx-auto mb-8"></div>
+          </div>
+
+          <p className="font-[Inter] text-[20px] text-center text-gray-700 max-w-4xl mx-auto mb-12">
+            At MechStrat Global, we serve two complementary client groups:
+            Manufacturing Companies seeking business growth, cost optimization,
+            and sourcing excellence, and AI-Based & Advanced Solution Providers
+            targeting the manufacturing ecosystem.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Card 1 */}
+            <div className="bg-[#E7F5F6] rounded-xl p-6 shadow-lg hover:animate-bounce-soft transition-all">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="bg-[#1695A3] p-3 rounded-lg">
+                  <Factory className="w-6 h-6 text-white" />
                 </div>
-            </section>
-            <section className="bg-white py-16 px-6">
-                <div className="container mx-auto max-w-7xl">
-                    {/* Heading */}
-                    <div className="text-center mb-4">
-                        <h2 className=" font-normal text-[50px] leading-[40px] tracking-[0] text-gray-800 text-center flex items-center justify-center mb-2">
-                            Service Offerings
-                        </h2>
+                <h3 className="font-[Poppins] font-semibold text-[20px] text-[#111827]">
+                  Manufacturing<br />Companies
+                </h3>
+              </div>
 
-                        <div className="w-24 h-1 bg-teal-500 mx-auto mb-8"></div>
-                    </div>
+              <div className="space-y-4 text-[#374151]">
+                <p>1. Business Consulting & Growth Strategy</p>
+                <p>2. Manufacturing Process & Capex Optimization</p>
+                <p>3. Business Problem Solving & Transformation</p>
+                <p>4. Strategic Sourcing & Supply Chain Consulting</p>
+              </div>
 
-                    {/* Description */}
-                    <p className="font-[Inter] font-normal text-[20px] leading-[28px] tracking-[0] text-center text-gray-700 max-w-4xl mx-auto mb-12 flex items-center justify-center">
-                        At MechStrat Global, we serve two complementary client groups: Manufacturing Companies seeking business growth,
-                        cost optimization, and sourcing excellence, and AI-Based & Advanced Solution Providers targeting the manufacturing ecosystem.
-                    </p>
+              <button
+                onClick={() => navigate("/services/Manufacturing")}
+                className="mt-8 text-teal-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all"
+              >
+                Learn More <ArrowRight size={18} />
+              </button>
+            </div>
 
-                    {/* Three Cards */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {/* Manufacturing Companies Card */}
-                        <div className="bg-[#E7F5F6]  rounded-xl p-6 shadow-lg">
-                            <div className="flex items-center gap-3 mb-6">
-                                <div className="bg-[#1695A3] p-3 rounded-lg">
-                                    <Factory className="w-6 h-6 text-white" />
-                                </div>
-                                <h3 className="font-[Poppins] font-semibold text-[20px] leading-[28px] tracking-[0] text-[#111827] flex items-center">
-                                    Manufacturing<br />Companies
-                                </h3>
-                            </div>
-
-                            <div className="space-y-4">
-                                <div className="flex gap-3">
-                                    <span className="text-[#1695A3] font-bold flex-shrink-0">1.</span>
-                                    <p className="font-[Poppins] font-normal text-[17px] leading-[26px] tracking-[0] text-[#374151] flex items-center">Business Consulting & Growth Strategy</p>
-                                </div>
-                                <div className="flex gap-3">
-                                    <span className="text-[#1695A3] font-bold flex-shrink-0">2.</span>
-                                    <p className="font-[Poppins] font-normal text-[17px] leading-[26px] tracking-[0] text-[#374151] flex items-center">Manufacturing Process & Capex Optimization</p>
-                                </div>
-                                <div className="flex gap-3">
-                                    <span className="text-[#1695A3] font-bold flex-shrink-0">3.</span>
-                                    <p className="font-[Poppins] font-normal text-[17px] leading-[26px] tracking-[0] text-[#374151] flex items-center">Business Problem Solving & Transformation</p>
-                                </div>
-                                <div className="flex gap-3">
-                                    <span className="text-[#1695A3] font-bold flex-shrink-0">4.</span>
-                                    <p className="font-[Poppins] font-normal text-[17px] leading-[26px] tracking-[0] text-[#374151] flex items-center">Strategic Sourcing & Supply Chain Consulting</p>
-                                </div>
-                            </div>
-
-                            <button className="mt-8 text-teal-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all">
-                                Learn More <ArrowRight size={18} />
-                            </button>
-                        </div>
-
-                        {/* AI Solution Providers Card */}
-                        <div className="bg-[#E7F5F6]  p-6 shadow-lg">
-                            <div className="flex items-center gap-3 mb-6">
-                                <div className="bg-[#1695A3] p-3 rounded-lg">
-                                    <Cpu className="w-6 h-6 text-white" />
-                                </div>
-                                <h3 className="font-[Poppins] font-semibold text-[20px] leading-[28px] tracking-[0] text-[#111827] flex items-center">
-                                    AI Solution Providers
-                                </h3>
-                            </div>
-
-                            <div className="space-y-4">
-                                <div className="flex gap-3">
-                                    <span className="text-[#1695A3] font-bold flex-shrink-0">1.</span>
-                                    <p className="font-[Poppins] font-normal text-[17px] leading-[26px] tracking-[0] text-[#374151] flex items-center">Go-to-Market (GTM) Strategy for AI-Based Manufacturing Solutions</p>
-                                </div>
-                                <div className="flex gap-3">
-                                    <span className="text-[#1695A3] font-bold flex-shrink-0">2.</span>
-                                    <p className="font-[Poppins] font-normal text-[17px] leading-[26px] tracking-[0] text-[#374151] flex items-center">Market Access & Partnership Development</p>
-                                </div>
-                                <div className="flex gap-3">
-                                    <span className="text-[#1695A3] font-bold flex-shrink-0">3.</span>
-                                    <p className="font-[Poppins] font-normal text-[17px] leading-[26px] tracking-[0] text-[#374151] flex items-center">Business Strategy & Commercial Scaling</p>
-                                </div>
-                            </div>
-                           <button className="mt-8 text-teal-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all">
-                                Learn More <ArrowRight size={18} />
-                            </button>
-                        </div>
-
-                        {/* Technology Solution Providers Card */}
-                        <div className="bg-[#E7F5F6] border-2  p-6 shadow-lg">
-                            <div className="flex items-center gap-3 mb-6">
-                                <div className="bg-[#1695A3] p-3 rounded-lg">
-                                    <Network className="w-6 h-6 text-white" />
-                                </div>
-                                <h3 className="font-[Poppins] font-semibold text-[20px] leading-[28px] tracking-[0] text-[#111827] flex items-center">
-                                    Technology Solution<br />Providers
-                                </h3>
-
-                            </div>
-
-                            <div className="space-y-4">
-                                <div className="flex gap-3">
-                                    <span className="text-[#1695A3] font-bold flex-shrink-0">1.</span>
-                                    <p className="font-[Poppins] font-normal text-[17px] leading-[26px] tracking-[0] text-[#374151] flex items-center">Go-to-Market and Localization Strategy</p>
-                                </div>
-                                <div className="flex gap-3">
-                                    <span className="text-[#1695A3] font-bold flex-shrink-0">2.</span>
-                                    <p className="font-[Poppins] font-normal text-[17px] leading-[26px] tracking-[0] text-[#374151] flex items-center">Partnership and Ecosystem Development</p>
-                                </div>
-                                <div className="flex gap-3">
-                                    <span className="text-[#1695A3] font-bold flex-shrink-0">3.</span>
-                                    <p className="font-[Poppins] font-normal text-[17px] leading-[26px] tracking-[0] text-[#374151] flex items-center">Business Consulting for Growth and Expansion</p>
-                                </div>
-                            </div>
-                            <button className="mt-8 text-teal-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all">
-                                Learn More <ArrowRight size={18} />
-                            </button>
-                        </div>
-                    </div>
-
+            {/* Card 2 */}
+            <div className="bg-[#E7F5F6] p-6 shadow-lg hover:animate-bounce-soft transition-all">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="bg-[#1695A3] p-3 rounded-lg">
+                  <Cpu className="w-6 h-6 text-white" />
                 </div>
-            </section>
-            <section className="bg-gray-50 py-16 px-6">
-                <div className="container mx-auto max-w-6xl">
-                    {/* Heading */}
-                    <div className="text-center mb-12">
-                        <h2 className="text-[#111827] font-normal text-[50px]  flex items-center justify-center text-center mb-2">Why MechStrat Global?</h2>
-                        <div className="w-24 h-1 bg-teal-500 mx-auto"></div>
-                    </div>
+                <h3 className="font-[Poppins] font-semibold text-[20px] text-[#111827]">
+                  AI Solution Providers
+                </h3>
+              </div>
 
-                    {/* Cards Grid */}
-                    <div className="space-y-8">
-                        {/* First Row - 3 Cards */}
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            {/* Exclusive Manufacturing Focus */}
-                            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-                                <div className="bg-[#E5F3F4] w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                                    <Target className="w-8 h-8 text-teal-600" />
-                                </div>
-                                <h3 className="text-xl  text-[#111827] mb-3">
-                                    Exclusive Manufacturing Focus
-                                </h3>
-                                <p className="text-[#374151] leading-relaxed">
-                                    Specialized expertise exclusively in the manufacturing ecosystem
-                                </p>
-                            </div>
+              <div className="space-y-4 text-[#374151]">
+                <p>1. GTM Strategy for AI Manufacturing Solutions</p>
+                <p>2. Market Access & Partnership Development</p>
+                <p>3. Business Strategy & Commercial Scaling</p>
+              </div>
 
-                            {/* Dual Expertise */}
-                            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-                                <div className="bg-[#E5F3F4] w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                                    <Users className="w-8 h-8 text-teal-600" />
-                                </div>
-                                <h3 className="text-xl  text-[#111827] mb-3">
-                                    Dual Expertise
-                                </h3>
-                                <p className="text-[#37415 leading-relaxed">
-                                    Serving both manufacturers and AI/technology providers
-                                </p>
-                            </div>
+              <button
+                onClick={() => navigate("/services/Technology")}
+                className="mt-8 text-teal-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all"
+              >
+                Learn More <ArrowRight size={18} />
+              </button>
+            </div>
 
-                            {/* Global Experience */}
-                            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-                                <div className="bg-[#E5F3F4] w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                                    <Globe className="w-8 h-8 text-teal-600" />
-                                </div>
-                                <h3 className="text-[20px] font-regular text-[#111827] mb-3">
-                                    Global Experience
-                                </h3>
-                                <p className="text-[#37415 leading-relaxed">
-                                    Proven track record across India, Europe, and Asia
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Second Row - 2 Cards Centered */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                            {/* Results-Oriented */}
-                            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-                                <div className="bg-[#E5F3F4] w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                                    <TrendingUp className="w-8 h-8 text-teal-600" />
-                                </div>
-                                <h3 className="text-[20px] font-regular text-[#111827] mb-3">
-                                    Results-Oriented
-                                </h3>
-                                <p className="text-[#37415 leading-relaxed">
-                                    Data-driven, practical consulting focused on measurable outcomes
-                                </p>
-                            </div>
-
-                            {/* Proven Execution */}
-                            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-                                <div className="bg-[#E5F3F4] w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                                    <Award className="w-8 h-8 text-teal-600" />
-                                </div>
-                                <h3 className="text-[20px] font-regular text-[#111827] mb-3">
-                                    Proven Execution
-                                </h3>
-                                <p className="text-[#37415] leading-relaxed">
-                                    Strong record in strategy execution and business transformation
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+            {/* Card 3 */}
+            <div className="bg-[#E7F5F6] border-2 p-6 shadow-lg hover:animate-bounce-soft transition-all">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="bg-[#1695A3] p-3 rounded-lg">
+                  <Network className="w-6 h-6 text-white" />
                 </div>
-            </section>
+                <h3 className="font-[Poppins] font-semibold text-[20px] text-[#111827]">
+                  Technology Solution<br />Providers
+                </h3>
+              </div>
+
+              <div className="space-y-4 text-[#374151]">
+                <p>1. Go-to-Market and Localization Strategy</p>
+                <p>2. Partnership and Ecosystem Development</p>
+                <p>3. Business Consulting for Growth and Expansion</p>
+              </div>
+
+              <button
+                onClick={() => navigate("/services/AIsolution")}
+                className="mt-8 text-teal-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all"
+              >
+                Learn More <ArrowRight size={18} />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why MechStrat Global */}
+      <section className="bg-gray-50 py-16 px-6 animate-slide-up">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-12">
+            <h2 className="text-[#111827] font-normal text-[50px] mb-2">
+              Why MechStrat Global?
+            </h2>
+            <div className="w-24 h-1 bg-teal-500 mx-auto"></div>
+          </div>
+
+          {/* Cards */}
+          <div className="space-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all hover:animate-bounce-soft">
+                <div className="bg-[#E5F3F4] w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                  <Target className="w-8 h-8 text-teal-600" />
+                </div>
+                <h3 className="text-xl text-[#111827] mb-3">
+                  Exclusive Manufacturing Focus
+                </h3>
+                <p className="text-[#374151]">
+                  Specialized expertise exclusively in manufacturing
+                </p>
+              </div>
+
+              <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all hover:animate-bounce-soft">
+                <div className="bg-[#E5F3F4] w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                  <Users className="w-8 h-8 text-teal-600" />
+                </div>
+                <h3 className="text-xl text-[#111827] mb-3">Dual Expertise</h3>
+                <p className="text-[#374151]">
+                  Serving both manufacturers and AI providers
+                </p>
+              </div>
+
+              <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all hover:animate-bounce-soft">
+                <div className="bg-[#E5F3F4] w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                  <Globe className="w-8 h-8 text-teal-600" />
+                </div>
+                <h3 className="text-[20px] text-[#111827] mb-3">
+                  Global Experience
+                </h3>
+                <p className="text-[#374151]">
+                  Proven track record across India, Europe, and Asia
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all hover:animate-bounce-soft">
+                <div className="bg-[#E5F3F4] w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                  <TrendingUp className="w-8 h-8 text-teal-600" />
+                </div>
+                <h3 className="text-[20px] text-[#111827] mb-3">
+                  Results-Oriented
+                </h3>
+                <p className="text-[#374151]">
+                  Data-driven consulting for measurable outcomes
+                </p>
+              </div>
+
+              <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all hover:animate-bounce-soft">
+                <div className="bg-[#E5F3F4] w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                  <Award className="w-8 h-8 text-teal-600" />
+                </div>
+                <h3 className="text-[20px] text-[#111827] mb-3">
+                  Proven Execution
+                </h3>
+                <p className="text-[#374151]">
+                  Strong record in strategy execution & transformation
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
             <section className="bg-white py-16 px-6">
                 <div className="container mx-auto max-w-6xl">
                     {/* Heading */}

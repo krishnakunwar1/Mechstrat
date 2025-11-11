@@ -34,8 +34,13 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import bannner from "../assets/homeBanner.png";
+import { useNavigate } from "react-router-dom";
+
+
 
 export default function HeroSection() {
+      const navigate = useNavigate()
+
   return (
     <section
       className="relative bg-cover bg-center h-screen flex items-center justify-center text-white"
@@ -59,7 +64,7 @@ export default function HeroSection() {
           and execution excellence.
         </p>
 
-        <button className="bg-[#189BAA] hover:bg-teal-600 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-all duration-300 inline-flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105">
+        <button   onClick={() => navigate("/schedule/formpage")}  className="bg-[#189BAA] hover:bg-teal-600 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-all duration-300 inline-flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105">
           Schedule a Consultation
           <ArrowRight className="w-5 h-5" />
         </button>

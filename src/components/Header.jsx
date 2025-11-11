@@ -95,7 +95,7 @@
 
 import React, { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import Logo from "../assets/Logo2.png";
+import logo from "../assets/logo1.png";
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -141,10 +141,16 @@ export default function Header() {
                         {/* Logo */}
                         <div className="flex items-center space-x-2">
                             <img
-                                src={Logo}
-                                alt="MECHSTART GLOBAL"
-                                className="h-20 w-auto object-contain"
+                                src={logo}
+                                alt="MECHSTRAT GLOBAL"
+                                className="h-28 w-auto object-contain"
+                                style={{
+                                    imageRendering: "crisp-edges",
+                                    filter: "contrast(110%) brightness(105%)",
+                                }}
                             />
+
+
                         </div>
 
                         {/* Desktop Navigation */}
@@ -166,8 +172,8 @@ export default function Header() {
                                         <a
                                             href={item.href}
                                             className={`font-medium text-[14px] flex items-end transition-colors ${index === 0
-                                                    ? 'text-[#1695A3] hover:text-teal-700'
-                                                    : 'text-[#000000] hover:text-teal-600'
+                                                ? 'text-[#1695A3] hover:text-teal-700'
+                                                : 'text-[#000000] hover:text-teal-600'
                                                 }`}
                                         >
                                             {item.name}
@@ -250,8 +256,8 @@ export default function Header() {
                                             href={item.href}
                                             onClick={() => setIsMenuOpen(false)}
                                             className={`font-medium text-sm transition-colors ${index === 0
-                                                    ? 'text-teal-600 hover:text-teal-700'
-                                                    : 'text-gray-800 hover:text-teal-600'
+                                                ? 'text-teal-600 hover:text-teal-700'
+                                                : 'text-gray-800 hover:text-teal-600'
                                                 }`}
                                         >
                                             {item.name}
