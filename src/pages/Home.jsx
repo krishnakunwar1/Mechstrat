@@ -78,6 +78,8 @@ export default function HomePage() {
     }
     if (!/^[a-zA-Z\s]+$/.test(formData.company)) {
       return setStatus({
+        phone: "",
+        countryCode: "+91",
         type: "error",
         message: "Company must contain only alphabets",
       });
