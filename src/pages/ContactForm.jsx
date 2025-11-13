@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "../components/Header";
-import Aibaner from "../assets/Aicompany.png";
+// import Aibaner from "../assets/Aicompany.png";
+import Aibaner from "../assets/projectbanner.png";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -16,6 +17,11 @@ export default function ContactForm() {
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    if (name === "name" && /\d/.test(value)) {
+      return;
+    }
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -39,9 +45,7 @@ export default function ContactForm() {
       const data = await response.json();
 
       if (data.success) {
-        alert(
-          "✅ Form submitted successfully! Check Ethereal inbox or preview link."
-        );
+        alert("✅ Form submitted successfully!");
         console.log("📬 Preview URL:", data.preview);
 
         setFormData({

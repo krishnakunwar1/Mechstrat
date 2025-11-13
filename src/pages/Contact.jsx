@@ -11,11 +11,25 @@ export default function ContactUs() {
   });
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
+    if (name === "name" && /\d/.test(value)) {
+      return;
+    }
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  //   if (name === "name" && /\d/.test(value)) {
+  //     return;
+  //   }
+  //   setFormData({ ...formData, [e.target.name]: e.target.value });
+  // };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!formData.phone || formData.phone.length !== 10) {
+      alert("❌ Please enter a valid 10-digit phone number.");
+      return;
+    }
     console.log(formData);
     alert("Message sent successfully!");
   };
@@ -45,7 +59,7 @@ export default function ContactUs() {
             <h2 className="font-bold text-[54px] leading-[100%] tracking-[0px] mb-2">
               Get in <span className="text-[#1695A3]">Touch</span>
             </h2>
-           <p className="text-[32px] leading-[40px] font-semibold text-gray-600 mb-6 ">
+            <p className="text-[32px] leading-[40px] font-semibold text-gray-600 mb-6 ">
               Let’s Build Your Strategy for Growth
             </p>
 
@@ -66,14 +80,45 @@ export default function ContactUs() {
                 required
                 className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-teal-500"
               />
-              <input
-                type="text"
-                name="phone"
-                placeholder="Phone number *"
-                onChange={handleChange}
-                required
-                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-teal-500"
-              />
+
+              <div className="flex">
+                {/* Country Code Dropdown */}
+                <select
+                  name="countryCode"
+                  value={formData.countryCode || "+91"}
+                  onChange={handleChange}
+                  className="border border-gray-300 rounded-l-md p-3 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                >
+                  <option value="+91">🇮🇳 +91</option>
+                  <option value="+1">🇺🇸 +1</option>
+                  <option value="+44">🇬🇧 +44</option>
+                  <option value="+61">🇦🇺 +61</option>
+                </select>
+
+                {/* Phone Input */}
+                <input
+                  type="text"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={(e) => {
+                    // Allow only digits
+                    const value = e.target.value.replace(/\D/g, "");
+                    if (value.length <= 10) {
+                      setFormData({ ...formData, phone: value });
+                    }
+                  }}
+                  placeholder="10-digit phone number"
+                  className="w-full border border-gray-300 rounded-r-md p-3 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  required
+                />
+              </div>
+
+              {/* Inline validation message */}
+              {formData.phone && formData.phone.length !== 10 && (
+                <p className="text-red-500 text-sm mt-1">
+                  Phone number must be exactly 10 digits
+                </p>
+              )}
               <textarea
                 name="message"
                 placeholder="Message"
@@ -119,16 +164,16 @@ export default function ContactUs() {
           </div>
         </div>
       </section>
-           <footer className="bg-[#1695A3] py-8 px-6">
-                <div className="container mx-auto text-center">
-                    <p className="text-white text-sm mb-2">
-                        © 2025 · MechStrat Global. All rights reserved.
-                    </p>
-                    <p className="text-white/90 text-sm">
-                        Business Strategy for a Smarter Manufacturing World
-                    </p>
-                </div>
-            </footer>
+      <footer className="bg-[#1695A3] py-8 px-6">
+        <div className="container mx-auto text-center">
+          <p className="text-white text-sm mb-2">
+            © 2025 · MechStrat Global. All rights reserved.
+          </p>
+          <p className="text-white/90 text-sm">
+            Business Strategy for a Smarter Manufacturing World
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }

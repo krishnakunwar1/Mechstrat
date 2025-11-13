@@ -28,27 +28,106 @@ import mg from "../assets/mgimage.png";
 import LeaderAI from "../assets/LeaderAI.jpg";
 
 export default function HomePage() {
+  // const [formData, setFormData] = useState({
+  //   name: "",
+  //   company: "",
+  //   email: "",
+  //   message: "",
+  // });
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     company: "",
     email: "",
+
     message: "",
   });
-  const navigate = useNavigate();
+  const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+  console.log("BASE_URL =", BASE_URL);
+  const [status, setStatus] = useState({ type: "", message: "" });
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+
+    // Validation while typing
+    if (name === "name" || name === "company") {
+      // block numbers & special characters
+      const cleaned = value.replace(/[^a-zA-Z\s]/g, "");
+      setFormData({ ...formData, [name]: cleaned });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
-  const handleSubmit = () => {
-    console.log("Form submitted:", formData);
-    alert("Thank you for reaching out! We will get back to you soon.");
-    // Add your form submission logic here
-  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus({ type: "", message: "" });
 
+    // 🔍 Frontend Validation
+    if (!formData.name.trim()) {
+      return setStatus({ type: "error", message: "Name is required" });
+    }
+    if (!formData.company.trim()) {
+      return setStatus({ type: "error", message: "Company is required" });
+    }
+    if (!/^[a-zA-Z\s]+$/.test(formData.name)) {
+      return setStatus({
+        type: "error",
+        message: "Name must contain only alphabets",
+      });
+    }
+    if (!/^[a-zA-Z\s]+$/.test(formData.company)) {
+      return setStatus({
+        type: "error",
+        message: "Company must contain only alphabets",
+      });
+    }
+    if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email)) {
+      return setStatus({ type: "error", message: "Invalid email address" });
+    }
+    // if (!formData.phone || formData.phone.length !== 10) {
+    //   return setStatus({
+    //     type: "error",
+    //     message: "Phone number must be exactly 10 digits",
+    //   });
+    // }
+    if (!formData.message.trim()) {
+      return setStatus({ type: "error", message: "Message is required" });
+    }
+
+    // 🚀 Send data to backend
+    try {
+      const response = await fetch(`${BASE_URL}/api/form/send-email`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setStatus({
+          type: "success",
+          message: "✅ Message sent successfully!",
+        });
+        setFormData({
+          name: "",
+          company: "",
+          email: "",
+
+          message: "",
+        });
+      } else {
+        setStatus({
+          type: "error",
+          message: result.message || "❌ Failed to send message",
+        });
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setStatus({ type: "error", message: "❌ Server not reachable" });
+    }
+  };
   return (
     <div className="bg-gray-50 font-sans">
       <Header />
@@ -69,15 +148,16 @@ export default function HomePage() {
           <div className="md:absolute md:top-16 md:left-[38%] md:right-0 mt-8 md:mt-0 md:pr-8 lg:pr-16">
             <div className="bg-[#E7F5F6] p-8 md:p-10 rounded-lg shadow-xl max-w-2xl mx-auto">
               <h2 className="font-[Poppins] font-normal text-[40px] leading-[52px] tracking-[0] text-[#111827] flex items-center mb-6 relative">
-                About Us
+                About Usgit push origin main
                 <span className="absolute bottom-[-5px] left-0 w-24 h-1 bg-[#1695A3]"></span>
               </h2>
+              git push origin main
               <div className="text-[#374151] font-medium text-[15px] space-y-4 leading-relaxed">
                 <p>
-                  MechStrat Global is a specialized consulting firm focused
-                  exclusively on the manufacturing ecosystem, partnering with
-                  both manufacturing companies and AI-driven solution providers
-                  that serve the industrial sector.
+                  git push origin main MechStrat Global is a specialized
+                  consulting firm focused exclusively on the manufacturing
+                  ecosystem, partnering with both manufacturing companies and
+                  AI-driven solution providers that serve the industrial sector.
                 </p>
                 <p>
                   We bring together deep mechanical domain knowledge, strategic
@@ -123,7 +203,10 @@ export default function HomePage() {
               <div className="bg-[#E7F5F6] rounded-2xl p-8 shadow-lg">
                 <div className="flex items-center gap-3 mb-6">
                   <CheckCircle className="w-8 h-8 text-[#0b3740]" />
-                  <h2 className="font-[Poppins] font-normal text-[32px] leading-[32px] text-[#0b3740] flex items-center">
+                  <h2
+                    className="font-[Poppins] font-git push origin main
+normal text-[32px] leading-[32px] text-[#0b3740] flex items-center"
+                  >
                     Our Core Expertise
                   </h2>
                 </div>
@@ -160,7 +243,7 @@ export default function HomePage() {
                   <li className="flex items-start gap-3">
                     <span className="text-teal-600 text-xl mt-1">•</span>
                     <span className="text-[#0b3740] text-base">
-                      Ecosystem & Partnership Enablement
+                      Ecosystem & Partnership Enablemgit push origin main ent
                     </span>
                   </li>
                 </ul>
@@ -537,77 +620,97 @@ export default function HomePage() {
 
             {/* Right Side - Contact Form */}
             <div>
-              <form action="">
-                <div className="space-y-6">
-                  {/* Name Field */}
-                  <div>
-                    <label className="block text-[#111827] font-medium mb-2">
-                      Name <span className="text-[#111827]">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Your name"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                    />
-                  </div>
-
-                  {/* Company Field */}
-                  <div>
-                    <label className="block text-[#111827] font-medium mb-2">
-                      Company <span className="text-[#111827]">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      placeholder="Your company"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                    />
-                  </div>
-
-                  {/* Email Field */}
-                  <div>
-                    <label className="block text-[#111827]text-gray-700 font-medium mb-2">
-                      Email <span className="text-[#111827]">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="your.email@company.com"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                    />
-                  </div>
-
-                  {/* Message Field */}
-                  <div>
-                    <label className="block text-[#111827] font-medium mb-2">
-                      Message <span className="text-[#111827]">*</span>
-                    </label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Tell us about your needs..."
-                      rows={5}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent resize-none"
-                    />
-                  </div>
-
-                  {/* Submit Button */}
-                  <button
-                    onClick={handleSubmit}
-                    className="w-full bg-[#1695A3] hover:bg-teal-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2"
-                  >
-                    Schedule a Consultation
-                    <Send className="w-5 h-5" />
-                  </button>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Name */}
+                <div>
+                  <label className="block text-[#111827] font-medium mb-2">
+                    Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your name"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  />
                 </div>
+
+                {/* Company */}
+                <div>
+                  <label className="block text-[#111827] font-medium mb-2">
+                    Company <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                    placeholder="Your company"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  />
+                </div>
+
+                {/* Email */}
+                <div>
+                  <label className="block text-[#111827] font-medium mb-2">
+                    Email <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="your.email@company.com"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  />
+                </div>
+
+                {/* Phone */}
+                <div></div>
+
+                {/* Message */}
+                <div>
+                  <label className="block text-[#111827] font-medium mb-2">
+                    Message <span className="text-red-500">*</span>
+                  </label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Tell us about your needs..."
+                    rows={5}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 resize-none"
+                  />
+                </div>
+
+                {/* Status Message */}
+                {status.message && (
+                  <p
+                    className={`text-sm ${
+                      status.type === "error"
+                        ? "text-red-500"
+                        : "text-green-600"
+                    }`}
+                  >
+                    {status.message}
+                  </p>
+                )}
+
+                {/* Submit */}
+                <button
+                  type="submit"
+                  disabled={
+                    !formData.name ||
+                    !formData.company ||
+                    !formData.email ||
+                    !formData.message
+                  }
+                  className="w-full bg-[#1695A3] hover:bg-teal-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
+                >
+                  Schedule a Consultation
+                  <Send className="w-5 h-5" />
+                </button>
               </form>
             </div>
           </div>
