@@ -109,13 +109,16 @@ export default function ContactForm() {
 
           {/* Date & Time */}
           <div>
-            <label className="block text-gray-700 font-medium mb-2">
-              Date / Time
-            </label>
+            <label className="block text-gray-700 font-medium mb-2">Date</label>
             <input
-              type="datetime-local"
+              type={formData.datetime ? "datetime-local" : "text"}
               name="datetime"
               value={formData.datetime}
+              placeholder="d/m/y : --"
+              onFocus={(e) => (e.target.type = "datetime-local")}
+              onBlur={(e) => {
+                if (!formData.datetime) e.target.type = "text";
+              }}
               onChange={handleChange}
               required
               className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500"
@@ -125,7 +128,7 @@ export default function ContactForm() {
           {/* Timezone */}
           <div>
             <label className="block text-gray-700 font-medium mb-2">
-              Timezone
+              Time-zone
             </label>
             <input
               type="text"
@@ -140,20 +143,20 @@ export default function ContactForm() {
           {/* Description */}
           <div>
             <label className="block text-gray-700 font-medium mb-2">
-              Project Description (max 500 chars)
+              Project Description
             </label>
             <textarea
               name="description"
               value={formData.description}
               onChange={handleChange}
-              maxLength="500"
+              maxLength="1000"
               rows="5"
               placeholder="Tell us briefly about your project..."
               required
               className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 resize-none"
             />
             <p className="text-gray-500 text-sm text-right">
-              {formData.description.length}/500
+              {formData.description.length}/1000
             </p>
           </div>
 
