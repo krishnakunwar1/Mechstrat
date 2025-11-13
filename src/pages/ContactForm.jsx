@@ -19,6 +19,12 @@ export default function ContactForm() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleKeyPress = (e) => {
+    if (/[0-9]/.test(e.key)) {
+      e.preventDefault();
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -87,6 +93,7 @@ export default function ContactForm() {
               name="name"
               value={formData.name}
               onChange={handleChange}
+              // onKeyPress={handleKeyPress}
               required
               className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500"
             />
