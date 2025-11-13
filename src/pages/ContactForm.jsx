@@ -10,20 +10,21 @@ export default function ContactForm() {
     timezone: "",
     description: "",
   });
+  const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+  console.log("BASE_URL =", BASE_URL);
 
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/form/send-email", {
+      const response = await fetch(`${BASE_URL}api/form/send-email`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -32,7 +33,9 @@ export default function ContactForm() {
       const data = await response.json();
 
       if (data.success) {
-        alert("✅ Form submitted successfully! Check Ethereal inbox or preview link.");
+        alert(
+          "✅ Form submitted successfully! Check Ethereal inbox or preview link."
+        );
         console.log("📬 Preview URL:", data.preview);
 
         setFormData({
@@ -56,18 +59,16 @@ export default function ContactForm() {
   return (
     <div className="bg-gray-50 font-sans">
       <Header />
-         <section
-          className="relative bg-cover h-[630px] bg-center flex items-center justify-center"
-          style={{
-            backgroundImage: `url(${Aibaner})`,
-          }}
-        >
-          <div className="container mx-auto max-w-6xl text-center relative z-10 px-6">
-            <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
-              
-            </h1> 
+      <section
+        className="relative bg-cover h-[630px] bg-center flex items-center justify-center"
+        style={{
+          backgroundImage: `url(${Aibaner})`,
+        }}
+      >
+        <div className="container mx-auto max-w-6xl text-center relative z-10 px-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg"></h1>
         </div>
-        </section> 
+      </section>
 
       <div className="min-h-screen bg-gray-50 flex items-center justify-center py-8 px-4">
         <form
@@ -132,7 +133,6 @@ export default function ContactForm() {
               placeholder="e.g. GMT+5:30 (India)"
               value={formData.timezone}
               onChange={handleChange}
-              
               className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500"
             />
           </div>
